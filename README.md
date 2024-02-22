@@ -100,7 +100,7 @@ Thank you for installing Istio 1.17.  Please take a few minutes to tell us about
 ![image](https://github.com/myathway-lab/Istio-IngressGateway/assets/157335804/f458fadf-987a-4f2c-a4b2-5ef4d308c783)
 
 
-1. Inside the **istio-in-action** namespace, create gw & vs to route traffic from external to internal services. 
+3. Inside the **istio-in-action** namespace, create gw & vs to route traffic from external to internal services. 
 
 - web-api-gw.yaml  (GW is only for listening the traffic.)
     
@@ -149,7 +149,7 @@ spec:
 ![image](https://github.com/myathway-lab/Istio-IngressGateway/assets/157335804/38eee715-cd4f-4486-99a3-05a83009eea6)
 
 
-Verify the GW & VS are created. 
+4. Verify the GW & VS are created. 
 
 ![image](https://github.com/myathway-lab/Istio-IngressGateway/assets/157335804/3121eb35-8a27-4870-ad4e-58d7670dce8c)
 
@@ -159,7 +159,7 @@ Verify the web-api has the service created.
 ![image](https://github.com/myathway-lab/Istio-IngressGateway/assets/157335804/c304a221-630f-40a5-bc3c-afadc90b7645)
 
 
-1. Once we created the GW & VS, we will verify end user is able to call [hellocloud.io](http://hellocloud.io) by using IngressGateway External IP. 
+5. Once we created the GW & VS, we will verify end user is able to call [hellocloud.io](http://hellocloud.io) by using IngressGateway External IP. 
 
 172.18.255.150 = Ingress GW External-IP
 
@@ -167,7 +167,7 @@ Verify the web-api has the service created.
 curl -H "Host: hellocloud.io" http://172.18.255.150:80
 ```
 
-1. It is success. It means users are able to access Ingress gateway which is activated by GW. Then GW is listening on incoming traffic which is hellocloud.io:80. Then VS is activated and routed to destination service “web-api”.
+6. It is success. It means users are able to access Ingress gateway which is activated by GW. Then GW is listening on incoming traffic which is hellocloud.io:80. Then VS is activated and routed to destination service “web-api”.
 
 ```yaml
 curl -H "Host: hellocloud.io" http://172.18.255.150:80
@@ -216,7 +216,7 @@ curl -H "Host: hellocloud.io" http://172.18.255.150:80
 }
 ```
 
-5) Uninstall the istio.
+7) Uninstall the istio.
 
 ```yaml
 istioctl uninstall --purge
