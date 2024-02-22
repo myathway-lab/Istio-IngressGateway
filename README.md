@@ -104,11 +104,8 @@ Thank you for installing Istio 1.17.  Please take a few minutes to tell us about
 
 - web-api-gw.yaml  (GW is only for listening the traffic.)
     
-    (Make sure the selector is correctly mentioned to Istio Ingress GW label.)
-    
-![image](https://github.com/myathway-lab/Istio-IngressGateway/assets/157335804/347bbe13-fc8d-4921-b7b9-fbfc9404fffa)
-
-    
+(Make sure the selector is correctly mentioned to Istio Ingress GW label.)
+        
     ```yaml
     apiVersion: networking.istio.io/v1beta1
     kind: Gateway   
@@ -125,7 +122,7 @@ Thank you for installing Istio 1.17.  Please take a few minutes to tell us about
         hosts:
         - "hellocloud.io"  #VGW will listen on traffic with hellocloud.io hostname
     ```
-    
+![image](https://github.com/myathway-lab/Istio-IngressGateway/assets/157335804/347bbe13-fc8d-4921-b7b9-fbfc9404fffa)    
 
 - web-api-gw-vs.yaml (Decide how to route the traffic coming from GW to destination services.)
     
