@@ -1,0 +1,14 @@
+apiVersion: networking.istio.io/v1beta1
+kind: Gateway   
+metadata:
+  name: web-api-gateway
+spec:
+  selector:  #Have to mention which "IngressGateway" will be used by virtual GW.
+    **istio: ingressgateway** #kubectl get svc -n istio-system --show-labels
+  servers:
+  - port:
+      number: 80   #VGW will listen on traffic with port 80
+      name: http
+      protocol: HTTP
+    hosts:
+    - "hellocloud.io"  #VGW will listen on traffic with hellocloud.io hostname
