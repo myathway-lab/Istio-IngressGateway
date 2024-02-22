@@ -106,24 +106,25 @@ Thank you for installing Istio 1.17.  Please take a few minutes to tell us about
     
 (Make sure the selector is correctly mentioned to Istio Ingress GW label.)
         
-    ```yaml
-    apiVersion: networking.istio.io/v1beta1
-    kind: Gateway   
-    metadata:
-      name: web-api-gateway
-    spec:
-      selector:  #Have to mention which "IngressGateway" will be used by virtual GW.
-        **istio: ingressgateway** #kubectl get svc -n istio-system --show-labels
-      servers:
-      - port:
-          number: 80   #VGW will listen on traffic with port 80
-          name: http
-          protocol: HTTP
-        hosts:
-        - "hellocloud.io"  #VGW will listen on traffic with hellocloud.io hostname
-    ```
 ![image](https://github.com/myathway-lab/Istio-IngressGateway/assets/157335804/347bbe13-fc8d-4921-b7b9-fbfc9404fffa)    
 
+
+```yaml
+apiVersion: networking.istio.io/v1beta1
+kind: Gateway   
+metadata:
+  name: web-api-gateway
+spec:
+  selector:  #Have to mention which "IngressGateway" will be used by virtual GW.
+    **istio: ingressgateway** #kubectl get svc -n istio-system --show-labels
+  servers:
+  - port:
+      number: 80   #VGW will listen on traffic with port 80
+      name: http
+      protocol: HTTP
+    hosts:
+    - "hellocloud.io"  #VGW will listen on traffic with hellocloud.io hostname
+```
 - web-api-gw-vs.yaml (Decide how to route the traffic coming from GW to destination services.)
     
     ```yaml
