@@ -82,9 +82,11 @@ Thank you for installing Istio 1.17.  Please take a few minutes to tell us about
 - Check the Istio supported CRDs.
 - Core components are different based on the profile.
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/f020007f-666a-401f-b7a3-4c1d3d9787c0/935b21eb-f577-4871-9889-f647a6125e83/Untitled.png)
+![image](https://github.com/myathway-lab/Istio-IngressGateway/assets/157335804/adf25be3-a591-4430-af5d-7a9fe6d82d8d)
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/f020007f-666a-401f-b7a3-4c1d3d9787c0/de791723-5078-4297-81fb-959c7c87f4d2/Untitled.png)
+
+![image](https://github.com/myathway-lab/Istio-IngressGateway/assets/157335804/8f2bde50-efae-4e44-bd0b-46d39476f4e6)
+
 
 <aside>
 💡 Now Let’s deploy the testing app & use our ingress gateway.
@@ -94,9 +96,9 @@ Thank you for installing Istio 1.17.  Please take a few minutes to tell us about
 1. Create the new namespace “istio-in-action”.
 2. Inside the **istio-in-action** namespace, deploy the sample-apps using the codes from “[hellocloud-native-box/istio-cop/1-start-istio/sample-apps at main · hellocloudio/hellocloud-native-box (github.com)](https://github.com/hellocloudio/hellocloud-native-box/tree/main/istio-cop/1-start-istio/sample-apps)”.
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/f020007f-666a-401f-b7a3-4c1d3d9787c0/b0320ed3-4c2d-42d2-820f-90af0b56f4e9/Untitled.png)
+![image](https://github.com/myathway-lab/Istio-IngressGateway/assets/157335804/b6b02916-7818-4528-9261-3e92e8bf1ec0)
+![image](https://github.com/myathway-lab/Istio-IngressGateway/assets/157335804/f458fadf-987a-4f2c-a4b2-5ef4d308c783)
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/f020007f-666a-401f-b7a3-4c1d3d9787c0/e3e8dc55-2541-4dee-b6af-111505419b90/Untitled.png)
 
 1. Inside the **istio-in-action** namespace, create gw & vs to route traffic from external to internal services. 
 
@@ -104,7 +106,8 @@ Thank you for installing Istio 1.17.  Please take a few minutes to tell us about
     
     (Make sure the selector is correctly mentioned to Istio Ingress GW label.)
     
-    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/f020007f-666a-401f-b7a3-4c1d3d9787c0/78be1865-318b-4277-aa3a-98a8dbf3ad2a/Untitled.png)
+![image](https://github.com/myathway-lab/Istio-IngressGateway/assets/157335804/347bbe13-fc8d-4921-b7b9-fbfc9404fffa)
+
     
     ```yaml
     apiVersion: networking.istio.io/v1beta1
@@ -145,15 +148,18 @@ Thank you for installing Istio 1.17.  Please take a few minutes to tell us about
     ```
     
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/f020007f-666a-401f-b7a3-4c1d3d9787c0/78be1865-318b-4277-aa3a-98a8dbf3ad2a/Untitled.png)
+![image](https://github.com/myathway-lab/Istio-IngressGateway/assets/157335804/38eee715-cd4f-4486-99a3-05a83009eea6)
+
 
 Verify the GW & VS are created. 
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/f020007f-666a-401f-b7a3-4c1d3d9787c0/8ef4551d-0b24-41c4-a238-27859097e55c/Untitled.png)
+![image](https://github.com/myathway-lab/Istio-IngressGateway/assets/157335804/3121eb35-8a27-4870-ad4e-58d7670dce8c)
+
 
 Verify the web-api has the service created.
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/f020007f-666a-401f-b7a3-4c1d3d9787c0/8669c8b6-ed53-4d6a-8d79-9e09dd50d55b/Untitled.png)
+![image](https://github.com/myathway-lab/Istio-IngressGateway/assets/157335804/c304a221-630f-40a5-bc3c-afadc90b7645)
+
 
 1. Once we created the GW & VS, we will verify end user is able to call [hellocloud.io](http://hellocloud.io) by using IngressGateway External IP. 
 
