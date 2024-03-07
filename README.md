@@ -1,13 +1,20 @@
 # Install Istio & Demostrate Istio IngressGateway
+## Summary
 In this lab, we will test belows - 
 
-1. Use asdf tool to manage our Istio versions. 
-2. Install Istio using profile.
-3. Use Istio Ingress Gateway to listen on external traffic & route to our destination services.
+-  Use asdf tool to manage our Istio versions. 
+-  Install Istio using profile.
+-  Use Istio Ingress Gateway to listen on external traffic & route to our destination services.
+
+<br>
 
 Before install Istio, we need to make sure Istio is compatible with our Kubernetes cluster version.  
+<br>
 
 https://istio.io/latest/docs/releases/supported-releases/     
+<br>
+
+**1) Use asdf to manage Istio versions.**
 
 ```yaml
 cd $HOME
@@ -44,7 +51,8 @@ asdf global istioctl 1.18.2
 istioctl version
 ```
 
-- List the Istio configuration profiles.
+
+**2) Install Istio profile “Demo”.**
 
 ```yaml
 vagrant@kindcluster-box:~$ istioctl profile list
@@ -59,8 +67,6 @@ Istio configuration profiles:
     preview
     remote
 ```
-
-- Install Istio profile “Demo”.
 
 ```yaml
 vagrant@kindcluster-box:~$ istioctl install --set profile=demo -y
@@ -88,10 +94,8 @@ Thank you for installing Istio 1.17.  Please take a few minutes to tell us about
 ![image](https://github.com/myathway-lab/Istio-IngressGateway/assets/157335804/8f2bde50-efae-4e44-bd0b-46d39476f4e6)
 
 
-<aside>
-💡 Now Let’s deploy the testing app & use our ingress gateway.
+**3) Deploy App & Use Istio Ingress Gateway to listen on external traffic & Route to our destination services.**
 
-</aside>
 
 1. Create the new namespace “istio-in-action”.
 2. Inside the **istio-in-action** namespace, deploy the sample-apps using the codes from “[hellocloud-native-box/istio-cop/1-start-istio/sample-apps at main · hellocloudio/hellocloud-native-box (github.com)](https://github.com/hellocloudio/hellocloud-native-box/tree/main/istio-cop/1-start-istio/sample-apps)”.
@@ -99,6 +103,7 @@ Thank you for installing Istio 1.17.  Please take a few minutes to tell us about
 ![image](https://github.com/myathway-lab/Istio-IngressGateway/assets/157335804/b6b02916-7818-4528-9261-3e92e8bf1ec0)
 ![image](https://github.com/myathway-lab/Istio-IngressGateway/assets/157335804/f458fadf-987a-4f2c-a4b2-5ef4d308c783)
 
+<br>
 
 3. Inside the **istio-in-action** namespace, create gw & vs to route traffic from external to internal services. 
 
