@@ -6,6 +6,8 @@ In this lab, we will test belows -
 -  Install Istio using profile.
 -  Use Istio Ingress Gateway to listen on external traffic & route to our destination services.
 
+![image](https://github.com/myathway-lab/Istio-IngressGateway/assets/157335804/e55a545a-1814-4d69-b47d-dbcf67e1ba52)
+
 <br>
 
 Take note - Before install Istio, we need to make sure Istio is compatible with our Kubernetes cluster version.  
