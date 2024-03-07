@@ -107,12 +107,11 @@ Thank you for installing Istio 1.17.  Please take a few minutes to tell us about
 
 3. Inside the **istio-in-action** namespace, create gw & vs to route traffic from external to internal services. 
 
-- web-api-gw.yaml  (GW is only for listening the traffic.)
-    
 (Make sure the selector is correctly mentioned to Istio Ingress GW label.)
         
 ![image](https://github.com/myathway-lab/Istio-IngressGateway/assets/157335804/347bbe13-fc8d-4921-b7b9-fbfc9404fffa)    
 
+- web-api-gw.yaml  (GW is only for listening the traffic.)
 
 ```yaml
 apiVersion: networking.istio.io/v1beta1
@@ -121,7 +120,7 @@ metadata:
   name: web-api-gateway
 spec:
   selector:  #Have to mention which "IngressGateway" will be used by virtual GW.
-    **istio: ingressgateway** #kubectl get svc -n istio-system --show-labels
+    istio: ingressgateway #kubectl get svc -n istio-system --show-labels
   servers:
   - port:
       number: 80   #VGW will listen on traffic with port 80
@@ -130,7 +129,7 @@ spec:
     hosts:
     - "hellocloud.io"  #VGW will listen on traffic with hellocloud.io hostname
 ```
-- web-api-gw-vs.yaml (Decide how to route the traffic coming from GW to destination services.)
+- web-api-gw-vs.yaml (VS decide how to route the traffic coming from GW to destination services.)
     
     ```yaml
     apiVersion: networking.istio.io/v1beta1
@@ -151,7 +150,6 @@ spec:
     ```
     
 
-![image](https://github.com/myathway-lab/Istio-IngressGateway/assets/157335804/38eee715-cd4f-4486-99a3-05a83009eea6)
 
 
 4. Verify the GW & VS are created. 
@@ -163,7 +161,7 @@ Verify the web-api has the service created.
 
 ![image](https://github.com/myathway-lab/Istio-IngressGateway/assets/157335804/c304a221-630f-40a5-bc3c-afadc90b7645)
 
-
+<br>
 5. Once we created the GW & VS, we will verify end user is able to call [hellocloud.io](http://hellocloud.io) by using IngressGateway External IP. 
 
 172.18.255.150 = Ingress GW External-IP
@@ -172,7 +170,12 @@ Verify the web-api has the service created.
 curl -H "Host: hellocloud.io" http://172.18.255.150:80
 ```
 
-6. It is success. It means users are able to access Ingress gateway which is activated by GW. Then GW is listening on incoming traffic which is hellocloud.io:80. Then VS is activated and routed to destination service “web-api”.
+<br>
+
+6. It is success. It means users are able to access "web-api" service.
+
+**GW is listening on incoming traffic which is hellocloud.io:80. VS is activated and routed to destination service “web-api”.**
+
 
 ```yaml
 curl -H "Host: hellocloud.io" http://172.18.255.150:80
