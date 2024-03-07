@@ -8,10 +8,10 @@ In this lab, we will test belows -
 
 <br>
 
-Before install Istio, we need to make sure Istio is compatible with our Kubernetes cluster version.  
+Take note - Before install Istio, we need to make sure Istio is compatible with our Kubernetes cluster version.  
 <br>
-
 https://istio.io/latest/docs/releases/supported-releases/     
+
 <br>
 
 **1) Use asdf to manage Istio versions.**
